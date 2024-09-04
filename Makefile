@@ -39,7 +39,7 @@ BUNDLE_METADATA_OPTS ?= $(BUNDLE_CHANNELS) $(BUNDLE_DEFAULT_CHANNEL)
 #
 # For example, running 'make bundle-build bundle-push catalog-build catalog-push' will build and push both
 # ansible.com/awx-operator-bundle:$VERSION and ansible.com/awx-operator-catalog:$VERSION.
-IMAGE_TAG_BASE ?= quay.io/ansible/awx-operator
+IMAGE_TAG_BASE ?= p004mgmtaksacrea01.azurecr.io/awx-operator
 
 # BUNDLE_IMG defines the image:tag used for the bundle.
 # You can use it as an arg. (E.g make bundle-build BUNDLE_IMG=<some-registry>/<project-name-bundle>:<tag>)

@@ -28,7 +28,7 @@ BRANCH=publish-awx-operator-$VERSION
 FORK=${FORK:-awx-auto}
 GITHUB_TOKEN=${GITHUB_TOKEN:-$AWX_AUTO_GITHUB_TOKEN}
 
-IMG_REPOSITORY=${IMG_REPOSITORY:-quay.io/ansible}
+IMG_REPOSITORY=${IMG_REPOSITORY:-p004mgmtaksacrea01.azurecr.io}
 
 OPERATOR_IMG=$IMG_REPOSITORY/awx-operator:$VERSION
 CATALOG_IMG=$IMG_REPOSITORY/awx-operator-catalog:$VERSION
@@ -45,7 +45,7 @@ make bundle-build bundle-push BUNDLE_IMG=$BUNDLE_IMG IMG=$OPERATOR_IMG
 make catalog-build catalog-push CATALOG_IMG=$CATALOG_IMG BUNDLE_IMGS=$BUNDLE_IMG BUNDLE_IMG=$BUNDLE_IMG IMG=$OPERATOR_IMG
 
 # Set containerImage & namespace variables in CSV
-sed -i.bak -e "s|containerImage: quay.io/ansible/awx-operator:devel|containerImage: ${OPERATOR_IMG}|g" bundle/manifests/awx-operator.clusterserviceversion.yaml
+sed -i.bak -e "s|containerImage: p004mgmtaksacrea01.azurecr.io/awx-operator:devel|containerImage: ${OPERATOR_IMG}|g" bundle/manifests/awx-operator.clusterserviceversion.yaml
 sed -i.bak -e "s|namespace: placeholder|namespace: awx|g" bundle/manifests/awx-operator.clusterserviceversion.yaml
 
 # Add replaces to dependency graph for upgrade path

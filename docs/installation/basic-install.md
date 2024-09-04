@@ -31,7 +31,7 @@ make deploy
 
 If you have a custom operator image you have built, you can specify it with:
 ```
-IMG=quay.io/$YOURNAMESPACE/awx-operator:$YOURTAG make deploy
+IMG=p004mgmtaksacrea01.azurecr.io/awx-operator:$YOURTAG make deploy
 ```
 
 Otherwise, you can manually create a file called `kustomization.yaml` with the following content:
@@ -45,7 +45,7 @@ resources:
 
 # Set the image tags to match the git version from above
 images:
-  - name: quay.io/ansible/awx-operator
+  - name: p004mgmtaksacrea01.azurecr.io/awx-operator
     newTag: <tag>
 
 # Specify a custom namespace in which to install AWX

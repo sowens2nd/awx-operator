@@ -12,7 +12,7 @@ metadata:
   name: <resourcename>-ee-pull-credentials
   namespace: <target namespace>
 stringData:
-  url: <registry url. i.e. quay.io>
+  url: <registry url. i.e. p004mgmtaksacrea01.azurecr.io>
   username: <username to connect as>
   password: <password to connect with>
   ssl_verify: <Optional attribute. Whether verify ssl connection or not. Accepted values "True" (default), "False" >

@@ -1,4 +1,4 @@
-FROM quay.io/operator-framework/ansible-operator:v1.34.0
+FROM p004mgmtaksacrea01.azurecr.io/ansible-operator:v1.34.0
 
 USER root
 RUN dnf update --security --bugfix -y && \
