@@ -1,0 +1,42 @@
+---
+apiVersion: awx.ansible.com/v1beta1
+kind: AWX
+metadata:
+  name: example-awx
+  labels:
+    my/team: "foo"
+    my/service: "bar"
+    my/do-not-inherit: "yes"
+spec:
+{% if awx_image %}
+  image: {{ awx_image }}
+{% endif %}
+{% if awx_version %}
+  image_version: {{ awx_version }}
+{% endif %}
+  ingress_type: ingress
+  ingress_path: /awx
+  ingress_annotations: |
+    kubernetes.io/ingress.class: nginx
+  web_resource_requirements:
+    requests:
+      cpu: 20m
+      memory: 32M
+  task_resource_requirements:
+    requests:
+      cpu: 20m
+      memory: 32M
+  ee_resource_requirements:
+    requests:
+      cpu: 20m
+      memory: 16M
+  no_log: false
+  postgres_resource_requirements: {}
+  postgres_init_container_resource_requirements: {}
+  redis_resource_requirements: {}
+  additional_labels:
+  - my/team
+  - my/service
+{% if additional_fields is defined %}
+  {{ additional_fields | to_nice_yaml | indent(2) }}
+{% endif %}
