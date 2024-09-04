@@ -5,7 +5,7 @@ metadata:
     alm-examples: '[]'
     capabilities: Basic Install
     categories: Integration & Delivery
-    containerImage: p004mgmtaksacrea01.azurecr.io/awx-operator:devel
+    containerImage: p004mgmtaksacrea01.azurecr.io/awx-operator:latest
     createdAt: "2019-10-30"
     description: AWX provides a web-based user interface, REST API, and task engine
       built on top of Ansible.

@@ -45,7 +45,7 @@ make bundle-build bundle-push BUNDLE_IMG=$BUNDLE_IMG IMG=$OPERATOR_IMG
 make catalog-build catalog-push CATALOG_IMG=$CATALOG_IMG BUNDLE_IMGS=$BUNDLE_IMG BUNDLE_IMG=$BUNDLE_IMG IMG=$OPERATOR_IMG
 
 # Set containerImage & namespace variables in CSV
-sed -i.bak -e "s|containerImage: p004mgmtaksacrea01.azurecr.io/awx-operator:devel|containerImage: ${OPERATOR_IMG}|g" bundle/manifests/awx-operator.clusterserviceversion.yaml
+sed -i.bak -e "s|containerImage: p004mgmtaksacrea01.azurecr.io/awx-operator:latest|containerImage: ${OPERATOR_IMG}|g" bundle/manifests/awx-operator.clusterserviceversion.yaml
 sed -i.bak -e "s|namespace: placeholder|namespace: awx|g" bundle/manifests/awx-operator.clusterserviceversion.yaml
 
 # Add replaces to dependency graph for upgrade path
