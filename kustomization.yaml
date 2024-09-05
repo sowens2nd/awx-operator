@@ -2,7 +2,8 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   # Find the latest tag here: https://github.com/ansible/awx-operator/releases
-  - github.com/sowens2nd/awx-operator/config/default?ref=latest
+  #- github.com/sowens2nd/awx-operator/config/default?ref=latest
+  - C:\Users\sowens\Projects\awx-operator\config\default?ref=latest
   - awx-nprd.yml
 # Set the image tags to match the git version from above
 images:
