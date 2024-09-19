@@ -2,6 +2,7 @@
 - hosts: localhost
   gather_facts: no
   collections:
+    - azure.azcollection
     - kubernetes.core
     - operator_sdk.util
   vars:
@@ -13,7 +14,7 @@
         namespace: '{{ ansible_operator_meta.namespace }}'
         name: redhat-operators-pull-secret
       register: _rh_ops_secret
-      no_log: "{{ no_log }}"
+      #no_log: "{{ no_log }}"
     - name: Create imagePullSecret
       k8s:
         state: present
