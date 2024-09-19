@@ -1,4 +1,4 @@
-FROM p004mgmtaksacrea01.azurecr.io/ansible-operator:v1.34.0
+FROM p004mgmtaksacrea01.azurecr.io/ansible-operator:v1.34.2
 
 USER root
 RUN dnf update --security --bugfix -y && \
