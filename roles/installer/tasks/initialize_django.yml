@@ -59,7 +59,7 @@
 - name: Check for specified default execution environment pull credentials
   k8s_info:
     kind: Secret
-    namespace: '{{ ansible_operator_meta.namespace }}'
+    namespace: awx
     name: '{{ ee_pull_credentials_secret }}'
   register: _custom_execution_environments_pull_credentials
   when: ee_pull_credentials_secret | length

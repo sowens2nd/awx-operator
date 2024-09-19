@@ -18,5 +18,5 @@
       kind: AWX
       metadata:
         name: '{{ deployment_name }}'
-        namespace: '{{ ansible_operator_meta.namespace }}'
+        namespace: awx
         ownerReferences: null

@@ -3,7 +3,7 @@
 - name: Get PostgreSQL configuration
   k8s_info:
     kind: Secret
-    namespace: '{{ ansible_operator_meta.namespace }}'
+    namespace: awx
     name: "{{ this_awx['resources'][0]['status']['postgresConfigurationSecret'] }}"
   register: pg_config
   no_log: "{{ no_log }}"
@@ -32,7 +32,7 @@
     - name: Get the postgres pod information
       k8s_info:
         kind: Pod
-        namespace: '{{ ansible_operator_meta.namespace }}'
+        namespace: awx
         label_selectors:
           - "{{ postgres_label_selector }}"
       register: postgres_pod
@@ -79,7 +79,7 @@
   k8s_info:
     api_version: v1
     kind: Pod
-    namespace: '{{ ansible_operator_meta.namespace }}'
+    namespace: awx
     label_selectors:
       - "app.kubernetes.io/name={{ deployment_name }}-task"
       - "app.kubernetes.io/managed-by={{ deployment_type }}-operator"

@@ -3,7 +3,7 @@
   k8s_info:
     api_version: v1
     kind: Pod
-    namespace: '{{ ansible_operator_meta.namespace }}'
+    namespace: awx
     label_selectors:
       - "app.kubernetes.io/name={{ ansible_operator_meta.name }}-task"
       - "app.kubernetes.io/managed-by={{ deployment_type }}-operator"
@@ -37,7 +37,7 @@
 - name: Check for Receptor CA Secret
   k8s_info:
     kind: Secret
-    namespace: '{{ ansible_operator_meta.namespace }}'
+    namespace: awx
     name: '{{ ansible_operator_meta.name }}-receptor-ca'
   register: receptor_ca
   no_log: "{{ no_log }}"
@@ -51,7 +51,7 @@
       k8s:
         state: absent
         kind: Secret
-        namespace: '{{ ansible_operator_meta.namespace }}'
+        namespace: awx
         name: '{{ ansible_operator_meta.name }}-receptor-ca'
     - name: Create tempfile for receptor-ca.key
       tempfile:
@@ -81,7 +81,7 @@
     - name: Read New Receptor CA Secret
       k8s_info:
         kind: Secret
-        namespace: '{{ ansible_operator_meta.namespace }}'
+        namespace: awx
         name: '{{ ansible_operator_meta.name }}-receptor-ca'
       register: _receptor_ca
       no_log: "{{ no_log }}"
@@ -127,7 +127,7 @@
     - name: Read Receptor CA secret
       k8s_info:
         kind: Secret
-        namespace: '{{ ansible_operator_meta.namespace }}'
+        namespace: awx
         name: '{{ ansible_operator_meta.name }}-receptor-ca'
       register: _receptor_ca
       no_log: "{{ no_log }}"
@@ -147,7 +147,7 @@
 - name: Check for Receptor work signing Secret
   k8s_info:
     kind: Secret
-    namespace: '{{ ansible_operator_meta.namespace }}'
+    namespace: awx
     name: '{{ ansible_operator_meta.name }}-receptor-work-signing'
   register: receptor_work_signing
   no_log: "{{ no_log }}"
@@ -183,7 +183,7 @@
     - name: Read Receptor work signing Secret
       k8s_info:
         kind: Secret
-        namespace: '{{ ansible_operator_meta.namespace }}'
+        namespace: awx
         name: '{{ ansible_operator_meta.name }}-receptor-work-signing'
       register: _receptor_work_signing
       no_log: "{{ no_log }}"
@@ -260,7 +260,7 @@
     - name: Get the new resource pod information after updating resource.
       k8s_info:
         kind: Pod
-        namespace: '{{ ansible_operator_meta.namespace }}'
+        namespace: awx
         label_selectors:
           - "app.kubernetes.io/name={{ ansible_operator_meta.name }}-task"
           - "app.kubernetes.io/managed-by={{ deployment_type }}-operator"

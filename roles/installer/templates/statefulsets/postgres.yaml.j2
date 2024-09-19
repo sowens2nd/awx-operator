@@ -4,7 +4,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: '{{ ansible_operator_meta.name }}-postgres-{{ supported_pg_version }}'
-  namespace: '{{ ansible_operator_meta.namespace }}'
+  namespace: awx
   labels:
     {{ lookup("template", "../common/templates/labels/additional_labels.yaml.j2") | indent(width=4) | trim }}
     app.kubernetes.io/name: 'postgres-{{ supported_pg_version }}'
@@ -153,7 +153,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: '{{ ansible_operator_meta.name }}-postgres-{{ supported_pg_version }}'
-  namespace: '{{ ansible_operator_meta.namespace }}'
+  namespace: awx
   labels:
     {{ lookup("template", "../common/templates/labels/additional_labels.yaml.j2") | indent(width=4) | trim }}
     app.kubernetes.io/name: 'postgres-{{ supported_pg_version }}'

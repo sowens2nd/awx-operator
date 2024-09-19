@@ -16,7 +16,7 @@
           kind: Secret
           metadata:
             name: '{{ item }}'
-            namespace: '{{ ansible_operator_meta.namespace }}'
+            namespace: awx
             ownerReferences: null
       loop:
         - '{{ _admin_password }}'

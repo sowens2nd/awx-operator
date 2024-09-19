@@ -3,7 +3,7 @@
   k8s_info:
     api_version: v1
     kind: Pod
-    namespace: '{{ ansible_operator_meta.namespace }}'
+    namespace: awx
     label_selectors:
       - "app.kubernetes.io/name={{ deployment_name }}-task"
       - "app.kubernetes.io/managed-by={{ deployment_type }}-operator"

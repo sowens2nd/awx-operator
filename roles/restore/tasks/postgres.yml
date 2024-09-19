@@ -7,7 +7,7 @@
 - name: Check for specified PostgreSQL configuration
   k8s_info:
     kind: Secret
-    namespace: '{{ ansible_operator_meta.namespace }}'
+    namespace: awx
     name: '{{ postgres_configuration_secret }}'
   register: pg_config
   no_log: "{{ no_log }}"
@@ -31,7 +31,7 @@
     - name: Get the postgres pod information
       k8s_info:
         kind: Pod
-        namespace: '{{ ansible_operator_meta.namespace }}'
+        namespace: awx
         label_selectors:
           - "{{ postgres_label_selector }}"
       register: postgres_pod

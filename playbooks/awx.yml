@@ -5,13 +5,13 @@
     - azure.azcollection
     - kubernetes.core
     - operator_sdk.util
-  vars:
-    no_log: true
+  #vars:
+  #  no_log: true
   pre_tasks:
     - name: Verify imagePullSecrets
       k8s_info:
         kind: Secret
-        namespace: '{{ ansible_operator_meta.namespace }}'
+        namespace: awx
         name: redhat-operators-pull-secret
       register: _rh_ops_secret
       #no_log: "{{ no_log }}"
@@ -23,7 +23,7 @@
           kind: Secret
           metadata:
             name: redhat-operators-pull-secret
-            namespace: '{{ ansible_operator_meta.namespace }}'
+            namespace: awx
           stringData:
             operator: awx
       when:

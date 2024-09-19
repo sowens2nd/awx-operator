@@ -79,7 +79,7 @@
       k8s_info:
         api_version: 'route.openshift.io/v1'
         kind: Route
-        namespace: '{{ ansible_operator_meta.namespace }}'
+        namespace: awx
         name: '{{ ansible_operator_meta.name }}'
       register: route_url
 
